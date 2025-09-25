@@ -6,7 +6,7 @@
 -- 5. Label schools using case statement
 -- 6. Find the total number of students tested
 -- 7. Create a school rank column
--- 8. Create a double CTE query (I'll figure this out when I get to it)
+-- 8. Create a CTE query to make the rankings column.
 
 SELECT *
 FROM scores_staging;
@@ -30,7 +30,7 @@ WHERE Borough = 'Manhattan'
 HAVING `Average Score (SAT Math)` > 600;
 
 -- Finding My High School
-SELECT *
+SELECT `School Name`, `Total Average SAT`, `Rank`
 FROM scores_staging
 WHERE `School Name` LIKE('Beacon%');
 
@@ -58,15 +58,14 @@ SET Performance = CASE
 					WHEN `Total Average SAT` BETWEEN 1101 AND 1400 THEN 'Adequate'
 					WHEN `Total Average SAT` BETWEEN 1401 AND 1700 THEN 'Good'
                     ELSE 'Outstanding'
-				  END
-;
+				  END;
 
 SELECT Performance, Count(*) AS Count
 FROM scores_staging
 GROUP BY Performance;
 
 -- Number of Students Who took the SAT
-SELECT *
+SELECT COUNT(*)
 FROM scores_staging;
 
 ALTER TABLE scores_staging
