@@ -147,10 +147,10 @@ FROM scores_staging
 GROUP BY Performance;
 ```
 
-Outstanding: 18
-Good: 50
-Adequate: 274
-Poor: 33
+{Outstanding: 18,
+Good: 50,
+Adequate: 274,
+Poor: 33}
 
 For further insights, I encourage you to dive into the sql script yourself. To expand the scope of this project in the future, it would be interesting to compare the distribution of SAT scores from this period to those that are more recent. It could be challenging considering the method of scoring the SAT has since been altered, but the same labels created in this project could be scaled to a new range of scores.
 
